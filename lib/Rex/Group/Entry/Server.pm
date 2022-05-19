@@ -383,6 +383,8 @@ sub evaluate_hostname {
 sub test_perl {
   my ($self) = @_;
   my $exec = Rex::Interface::Exec->create;
+  Rex::Logger::info( 'Force no_path_cleanup', 'warn' );
+  Rex::Config->set_no_path_cleanup(1);
   return $exec->can_run( ["perl"] ); # use a new anon ref, so that we don't have drawbacks if some lower layers will manipulate things.
 }
 
